@@ -1,27 +1,27 @@
 {% extends "base.html.jinja" %}
 {% block title %}{{ state.name }}{% endblock %}
 {% block content %}
-    <h1>{{ state.name }} needs your voice.</h1>
-    <p>Select your county below for details.</p>
+    <h1>{{ state.name }} necesita tu voz.</h1>
+    <p>Selecciones tu contado en la lista de abajo, para detalles.</p>
     <ul id="dates">
     {% for date in dates %}
       <li>{{ date.date }} - {{ date.name }}</li>
     {% endfor %}
     </ul>
     <ul>
-      <li><a href="{{ state.homepage }}">Elections Site</a></li>
-      <li><a href="{{ state.registration_info }}">Registration Information</a></li>
+      <li><a href="{{ state.homepage }}">Sitio Electoral</a></li>
+      <li><a href="{{ state.registration_info }}">Información de Registro</a></li>
     {% if state.absentee_info %}
-      <li><a href="{{ state.absentee_info }}">Absentee Voting</a></li>
+      <li><a href="{{ state.absentee_info }}">Votación en Ausencia</a></li>
     {% endif %}
     {% if state.military_overseas_info %}
-      <li><a href="{{ state.military_overseas_info }}">Military and Overseas Voting</a></li>
+      <li><a href="{{ state.military_overseas_info }}">Votación para Milicia y Fuera del País<a></li>
     {% endif %}
     {% if state.military_info %}
-      <li><a href="{{ state.military_info }}">Military Voting</a></li>
+      <li><a href="{{ state.military_info }}">Votación para Milicia</a></li>
     {% endif %}
     {% if state.overseas_info %}
-      <li><a href="{{ state.overseas_info }}">Overseas Voting</a></li>
+      <li><a href="{{ state.overseas_info }}">Votación fuera del País</a></li>
     {% endif %}
     </ul>
     <ul id="counties">
@@ -30,9 +30,9 @@
     {% endfor %}
     </ul>
 
-    Add all of the dates to your calendar by clicking <a href="webcal://electioncal.us/{{language}}/{{state.lower_name}}/voter.ics">here</a> (
+    Agregue todas las fechas al calendario haciendo click <a href="webcal://electioncal.us/{{language}}/{{state.lower_name}}/voter.ics">aquí</a> (
     {% for alternative in alternatives %}<a href="https://electioncal.us/{{language}}/{{state.lower_name}}/voter.{{alternative.extension}}">{{alternative.name}}</a>{% if not loop.last %}, {% endif %}
-    {% endfor %}). Get state-wide dates <a href="webcal://electioncal.us/{{language}}/{{state.lower_name}}/all-voter.ics">here</a>(
+    {% endfor %}). Reciba fechas a nivel de estado <a href="webcal://electioncal.us/{{language}}/{{state.lower_name}}/all-voter.ics">aquí</a>(
     {% for alternative in alternatives %}<a href="https://electioncal.us/{{language}}/{{state.lower_name}}/all-voter.{{alternative.extension}}">{{alternative.name}}</a>{% if not loop.last %}, {% endif %}
     {% endfor %}).
 {% endblock %}
